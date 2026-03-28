@@ -1,16 +1,17 @@
-# Express Template
+# Members Only
 
 [Live Demo](#)<br/><br/>
 [![The Odin Project](https://img.shields.io/badge/The%20Odin%20Project-A9792B?logo=theodinproject&logoColor=fff)](#)
 
 ## Overview
 
-This is a project from [The Odin Project](https://theodinproject.com): [Project: ](#).
+This is a project from [The Odin Project](https://theodinproject.com): [Project: Members Only](https://www.theodinproject.com/lessons/node-path-nodejs-members-only). In this project, I have built an exclusive clubhouse can write anonymous posts. Inside the clubhouse, members can see who the author of the post is, but outside the clubhouse, they can only see the post content but not the date and author of the post.
 
 ## Learning Points
 
--
--
+- Understand the use of User authentications through the Passport.js middleware LocalStrategy to use session-based authentication
+- Understand the concepts of HTTP requests, cookies and sessions in the backend
+- Reinforced my understanding of form-validation through the use of [custom validators](https://express-validator.github.io/docs/guides/customizing/) through express-validator
 
 ## Tech Stack
 
@@ -25,7 +26,7 @@ This is a project from [The Odin Project](https://theodinproject.com): [Project:
 
 ### Prerequisites
 
-You will need to install the latest version of npm to get started on using this project
+You will need to install the latest version of npm and have PostgreSQL set up to get started on using this project
 
 - npm
 
@@ -33,31 +34,42 @@ You will need to install the latest version of npm to get started on using this 
 npm install npm@latest -g
 ```
 
+- [PostgreSQL setup](https://www.theodinproject.com/lessons/nodejs-using-postgresql)
+
 ### Installation
 
-Getting started on running the webpack server to your localhost, localhost:8080
+Getting started on running the webpack server on your localhost, localhost:8080
 
 1. Cloning the repository
 
 ```sh
-git clone git@github.com:JohnFerrancol/XX.git
+git clone git@github.com:JohnFerrancol/members-only.git
 ```
 
-2. Navigate to XX folder and install npm packages
+2. Navigate to the members-only folder and install the npm packages
 
 ```sh
-cd XX && npm install
+cd members-only && npm install
 ```
 
-3. Running the Express server
+3. Create a <b>members-only</b> database in PostgreSQL and run the seeder function to set up the tables and starter data in the Express application
+
+```sh
+npm run seed
+```
+
+4. Running the Express server
 
 ```sh
 npm run start
 ```
 
-4. Open in web browser via: http://localhost:3000
+5. Open in web browser via: http://localhost:3000
 
 ## Roadmap
 
-- [ ] XXX
-- [ ] XXX
+- [ ] Created a Sign-up form with sanitisation and validation with a confirmPassword field and validated it using the custom validator in Express
+- [ ] Create a Login Form using Passport.js
+- [ ] Display the correct posts based on login and membership status
+- [ ] Add a page where members can 'join the club' by entering a passcode, where they can then see the author names on the post
+- [ ] Add a user model called admin, which can delete messages
