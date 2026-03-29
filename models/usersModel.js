@@ -19,4 +19,8 @@ const insertUser = async (username, hashedPassword) => {
   ]);
 };
 
-export { getUserByName, getUserById, insertUser };
+const updateUserMembershipById = async (id) => {
+  await pool.query(`UPDATE users SET is_member=TRUE WHERE id=$1`, [id]);
+};
+
+export { getUserByName, getUserById, insertUser, updateUserMembershipById };

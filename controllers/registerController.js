@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import { insertUser } from '../models/usersModel.js';
-import { validationResult, matchedData } from 'express-validator';
+import { validationResult } from 'express-validator';
 import newUserValidator from '../middleware/validators/userValidator.js';
 
 const registerUsersGet = (req, res) => {

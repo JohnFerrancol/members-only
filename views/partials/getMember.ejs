@@ -1,0 +1,28 @@
+<div id="overlay" class="overlay"></div>
+
+<dialog open class="get-member-dialog">
+  <form class="input-forms" method="POST" action="/member">
+    <h3 class="form-header">
+      Answer this simple question every F1 fan should know!
+    </h3>
+
+    <div class="input-wrapper">
+      <% const answerError = errors?.find(e => e.path === 'answer'); %>
+      <label for="answer">Who won the 2025 F1 WDC?</label>
+      <input
+        type="text"
+        id="answer"
+        name="answer"
+        class="<%= answerError ? 'input-error' : '' %>"
+        value="<%= formData.answer %>"
+      />
+    </div>
+    <% if (answerError) {%>
+    <p class="error-msg"><%= answerError.msg %></p>
+    <% } %>
+
+    <button class="submit-button" type="submit" value="Submit">
+      Get Member
+    </button>
+  </form>
+</dialog>

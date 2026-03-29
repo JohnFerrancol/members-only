@@ -1,6 +1,13 @@
 <div class="home-page-container">
+  <% if (!locals.user) {%>
+  <div class="top-message">
+    <p>To get the membership, you need to <a href="/login">login</a></p>
+  </div>
+  <% } else {%> <% if (!locals.user.is_member) {%> <%-
+  include("partials/getMember") %> <% } %> <% } %>
   <h1>Posts</h1>
   <div class="posts-container">
+    <div class="login-message"></div>
     <% posts.forEach(post => { %>
     <div class="post-container">
       <div class="post-header">
