@@ -71,5 +71,6 @@ npm run start
 - [x] Created a Sign-up form with sanitisation and validation with a confirmPassword field and validated it using the custom validator in Express
 - [x] Create a Login Form using Passport.js
 - [x] Display the correct posts based on login and membership status
-- [ ] Add a page where members can 'join the club' by entering a passcode, where they can then see the author names on the post
+- [x] Add a page where members can 'join the club' by entering a passcode, where they can then see the author names on the post
+- [ ] Allow logged-in users to create a new post
 - [ ] Add a user model called admin, which can delete messages
