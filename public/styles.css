@@ -89,12 +89,12 @@ header.navigation .navigation-links:first-of-type:hover {
 }
 
 main {
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
+  display: grid;
 }
 
 main .form-container {
+  margin-top: 3rem;
+  justify-self: center;
   width: 30vw;
   background-color: white;
   padding: 1.5rem 3.25rem;
@@ -178,4 +178,31 @@ main .form-container .auth-error-msg {
   padding: 0.5rem 1rem;
   box-shadow: var(--content-box-shadow);
   border-radius: 0.25rem;
+}
+
+main .home-page-container {
+  padding: 1.25rem 3rem;
+}
+
+main .home-page-container .posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+main .home-page-container .post-container {
+  background-color: white;
+  box-shadow: var(--content-box-shadow);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+main .home-page-container .post-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }

@@ -1,13 +1,20 @@
-<div>
-  <h1>Home Page</h1>
-  <% posts.forEach(post => { %>
-  <div class="post-container">
-    <h2>
-      <%= (locals.user) ? post.username : '*'.repeat(post.username.length) %>
-    </h2>
-    <h2><%= post.created_at %></h2>
-    <h2><%= post.title %></h2>
-    <h2><%= post.content %></h2>
+<div class="home-page-container">
+  <h1>Posts</h1>
+  <div class="posts-container">
+    <% posts.forEach(post => { %>
+    <div class="post-container">
+      <div class="post-header">
+        <i class="fa-solid fa-circle-user fa-2xl"></i>
+        <h3>
+          <%= (locals.user) ? post.username : '*'.repeat(post.username.length)
+          %>
+        </h3>
+        <p class="mid-dot">&middot;</p>
+        <p class="post-created-at"><%= post.created_at %></p>
+      </div>
+      <h3 class="post-title"><%= post.title %></h3>
+      <p class="post-content"><%= post.content %></p>
+    </div>
+    <% }) %>
   </div>
-  <% }) %>
 </div>

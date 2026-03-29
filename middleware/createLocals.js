@@ -45,6 +45,7 @@ const createLocals = async (req, res, next) => {
   }));
   res.locals.posts = updatedPostsArray;
 
+  res.locals.user = req.user || { is_member: false };
   res.locals.errors = [];
   res.locals.formData = [];
   next();
