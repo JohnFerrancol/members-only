@@ -1,5 +1,6 @@
 import { getPostsAndTheirUsers } from '../models/postModel.js';
 
+// Function used to render how long ago the post was created
 const timeAgo = (date) => {
   const seconds = Math.floor((new Date() - new Date(date)) / 1000);
 

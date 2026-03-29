@@ -45,6 +45,7 @@ app.set('layout', 'layout');
 // Put the reuable locals in the createLocals middleware function
 app.use(createLocals);
 
+// Routes in the application
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);

@@ -6,6 +6,7 @@ import {
 
 const registerRouter = Router();
 
+// HTTP requests used to register new users
 registerRouter.get('/', registerUsersGet);
 registerRouter.post('/', registerUsersPost);
 

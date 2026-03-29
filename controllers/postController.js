@@ -6,10 +6,12 @@ import {
   deletePostById,
 } from '../models/postModel.js';
 
+// Middleware used to render the form to create a new post
 const newPostGet = (req, res) => {
   res.render('post', { title: 'Post' });
 };
 
+// Middleware used to process and validate the data from the form using express-validator and inserting the new post to the database
 const newPostPost = [
   newPostValidator,
   async (req, res) => {
@@ -27,6 +29,7 @@ const newPostPost = [
   },
 ];
 
+// Middleware used to render the dialog to confirm with the user to delete the post
 const deletePostGet = async (req, res) => {
   const postToDelete = await getPostById(req.params.id);
   res.render('index', {
@@ -37,6 +40,7 @@ const deletePostGet = async (req, res) => {
   });
 };
 
+// Middleware used to run delete the selected post in the database
 const deletePostPost = async (req, res) => {
   const postId = req.params.id;
   await deletePostById(postId);

@@ -1,3 +1,4 @@
+// Middleware to verify whether the user is authenticated
 const isAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
     next();
@@ -6,6 +7,7 @@ const isAuth = (req, res, next) => {
   }
 };
 
+// Middleware to verify whether the user is the admin
 const isAdmin = (req, res, next) => {
   if (req.isAuthenticated() && req.user.is_admin) {
     next();

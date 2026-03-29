@@ -2,6 +2,7 @@ import { Client } from 'pg';
 import 'dotenv/config';
 import bcrypt from 'bcryptjs';
 
+// SQL Queries to add dummy data and add the tables
 const createTables = `
   CREATE TABLE IF NOT EXISTS sessions (
     "sid" VARCHAR(255) NOT NULL PRIMARY KEY,
@@ -54,6 +55,7 @@ const insertPosts = `
     ('Say that again?', 'I''m just useless!', (SELECT id FROM users WHERE username = 'LewisHamilton44')),
     ('Radio Check?', 'It''s Friday then it''s Saturday Sunday!', (SELECT id FROM users WHERE username = 'LandoNorris4'));
 `;
+
 // Run the function to add the dummy data and the tables to the database
 const main = async () => {
   console.log('Seeding Inventory Application Database....');

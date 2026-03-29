@@ -6,6 +6,7 @@ import {
 
 const loginRouter = Router();
 
+// HTTP requests to log in the user
 loginRouter.get('/', loginUsersGet);
 loginRouter.post('/', loginUsersPost);
 

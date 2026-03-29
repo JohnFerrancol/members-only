@@ -2,6 +2,7 @@ import { updateUserMembershipById } from '../models/usersModel.js';
 import correctAnswerValidator from '../middleware/validators/membershipValidator.js';
 import { validationResult } from 'express-validator';
 
+// Middleware used to activate the membership of the user by validating the passcode using express-validator
 const getMembershipPost = [
   correctAnswerValidator,
   async (req, res) => {

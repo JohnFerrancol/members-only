@@ -1,5 +1,6 @@
 import passport from '../auth/passport.js';
 
+// Middleware used to render the login form
 const loginUsersGet = (req, res) => {
   console.log;
   res.render('login', {
@@ -9,6 +10,7 @@ const loginUsersGet = (req, res) => {
   });
 };
 
+// Middleware used to process the data from the form and authenticate the user via Passport.js
 const loginUsersPost = (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) return next(err);
