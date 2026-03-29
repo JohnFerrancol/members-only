@@ -5,10 +5,14 @@
     <div class="post-container">
       <div class="post-header">
         <i class="fa-solid fa-circle-user fa-2xl"></i>
+        <% if (locals.user) { %>
         <h3>
-          <%= (locals.user) ? post.username : '*'.repeat(post.username.length)
-          %>
+          <%= (locals.user.is_member) ? post.username :
+          "*".repeat(post.username.length) %>
         </h3>
+        <% } else {%>
+        <h3><%= "*".repeat(post.username.length) %></h3>
+        <% } %>
         <p class="mid-dot">&middot;</p>
         <p class="post-created-at"><%= post.created_at %></p>
       </div>
