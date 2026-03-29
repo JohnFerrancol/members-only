@@ -52,6 +52,14 @@ header.navigation .app-icon {
   margin-right: 0.5rem;
 }
 
+header.navigation .username-wrapper {
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  gap: 0.1rem;
+  align-items: center;
+}
+
 header.navigation .navigation-links-container {
   width: 100%;
   display: flex;
