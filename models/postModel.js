@@ -7,6 +7,11 @@ const getPostsAndTheirUsers = async () => {
   return rows;
 };
 
+const getPostById = async (id) => {
+  const { rows } = await pool.query(`SELECT * FROM posts WHERE id=$1`, [id]);
+  return rows[0];
+};
+
 const insertPostByUserId = async (title, content, userId) => {
   await pool.query(
     `
@@ -16,4 +21,13 @@ const insertPostByUserId = async (title, content, userId) => {
   );
 };
 
-export { getPostsAndTheirUsers, insertPostByUserId };
+const deletePostById = async (id) => {
+  await pool.query(`DELETE FROM posts WHERE id=$1`, [id]);
+};
+
+export {
+  getPostsAndTheirUsers,
+  getPostById,
+  insertPostByUserId,
+  deletePostById,
+};

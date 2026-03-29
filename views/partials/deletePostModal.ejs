@@ -1,0 +1,18 @@
+<div id="overlay" class="overlay"></div>
+
+<dialog open class="delete-post-dialog">
+  <form method="POST" action="/post/<%= postToDelete.id %>/delete">
+    <p class="delete-msg">
+      Are you sure you want to delete the following:
+      <br />
+      "<%= postToDelete.title %>"
+    </p>
+
+    <div class="button-wrapper">
+      <button type="submit">Delete</button>
+      <a href="/">
+        <button type="button">Cancel</button>
+      </a>
+    </div>
+  </form>
+</dialog>

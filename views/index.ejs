@@ -3,32 +3,38 @@
   <div class="top-message">
     <p>To get the membership, you need to <a href="/login">login</a></p>
   </div>
-  <% } else {%>
-  <% if (!locals.user.is_member) {%>
-  <%-
-  include("partials/getMember") %>
-  <% } %>
-  <% } %>
+  <% } else {%> <% if (!locals.user.is_member) {%> <%-
+  include("partials/getMemberModal") %> <% } %> <% } %> <% if
+  (locals.showDeleteDialog) { %> <%- include("partials/deletePostModal") %> <% }
+  %>
   <h1>Posts</h1>
   <div class="posts-container">
     <div class="login-message"></div>
     <% posts.forEach(post => { %>
     <div class="post-container">
-      <div class="post-header">
-        <i class="fa-solid fa-circle-user fa-2xl"></i>
-        <% if (locals.user) { %>
-        <h3>
-          <%= (locals.user.is_member) ? post.username :
-          "*".repeat(post.username.length) %>
-        </h3>
-        <% } else {%>
-        <h3><%= "*".repeat(post.username.length) %></h3>
-        <% } %>
-        <p class="mid-dot">&middot;</p>
-        <p class="post-created-at"><%= post.created_at %></p>
+      <div class="post-content">
+        <div class="post-header">
+          <i class="fa-solid fa-circle-user fa-2xl"></i>
+          <% if (locals.user) { %>
+          <h3>
+            <%= (locals.user.is_member) ? post.username :
+            "*".repeat(post.username.length) %>
+          </h3>
+          <% } else {%>
+          <h3><%= "*".repeat(post.username.length) %></h3>
+          <% } %>
+          <p class="mid-dot">&middot;</p>
+          <p class="post-created-at"><%= post.created_at %></p>
+        </div>
+        <h3 class="post-title"><%= post.title %></h3>
+        <p class="post-content"><%= post.content %></p>
       </div>
-      <h3 class="post-title"><%= post.title %></h3>
-      <p class="post-content"><%= post.content %></p>
+
+      <% if (locals.user && locals.user.is_admin) { %>
+      <a href="/post/<%= post.id %>/delete">
+        <i class="fa-solid fa-trash fa-2xl delete-post"></i>
+      </a>
+      <% } %>
     </div>
     <% }) %>
   </div>

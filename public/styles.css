@@ -127,6 +127,7 @@ main dialog {
   width: 25vw;
   background-color: var(--white);
   color: inherit;
+  font-family: inherit;
   box-shadow: var(--content-box-shadow);
   border: 1px solid #d3d3d3;
   border-radius: 1rem;
@@ -264,14 +265,54 @@ main .home-page-container .post-container {
   box-shadow: var(--content-box-shadow);
   border-radius: 1rem;
   padding: 1rem 2rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main .home-page-container .post-content {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-weight: 500;
 }
 
 main .home-page-container .post-header {
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+
+main .home-page-container .delete-post {
+  color: var(--black);
+  margin-right: 5rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+main .home-page-container .post-container:hover .delete-post {
+  opacity: 1;
+}
+
+main .delete-post-dialog {
+  font-weight: 500;
+}
+
+main .button-wrapper {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+main .button-wrapper button {
+  margin-top: 2rem;
+  font-family: inherit;
+  font-size: 1.25rem;
+  background-color: var(--purple);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: var(--content-box-shadow);
 }

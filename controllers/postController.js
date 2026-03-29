@@ -1,6 +1,10 @@
 import { validationResult, matchedData } from 'express-validator';
 import newPostValidator from '../middleware/validators/postValidator.js';
-import { insertPostByUserId } from '../models/postModel.js';
+import {
+  insertPostByUserId,
+  getPostById,
+  deletePostById,
+} from '../models/postModel.js';
 
 const newPostGet = (req, res) => {
   res.render('post', { title: 'Post' });
@@ -23,4 +27,20 @@ const newPostPost = [
   },
 ];
 
-export { newPostGet, newPostPost };
+const deletePostGet = async (req, res) => {
+  const postToDelete = await getPostById(req.params.id);
+  res.render('index', {
+    title: 'Index',
+    user: req.user,
+    showDeleteDialog: true,
+    postToDelete: postToDelete,
+  });
+};
+
+const deletePostPost = async (req, res) => {
+  const postId = req.params.id;
+  await deletePostById(postId);
+  res.redirect('/');
+};
+
+export { newPostGet, newPostPost, deletePostGet, deletePostPost };
