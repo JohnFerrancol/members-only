@@ -1,7 +1,7 @@
 <div class="form-container">
   <h1 class="form-header">Log In to existing account</h1>
   <form class="input-forms" method="POST" action="/login">
-    <% messages.forEach(msg => { %>
+    <% authErrorMessages.forEach(msg => { %>
     <p class="auth-error-msg"><%= msg %></p>
     <% }) %>
 
@@ -11,7 +11,8 @@
         type="text"
         id="username"
         name="username"
-        class="<%= messages.length > 0 ? 'input-error' : '' %>"
+        class="<%= authErrorMessages.length > 0 ? 'input-error' : '' %>"
+        value="<%= usernameInput %>"
       />
     </div>
 
@@ -21,8 +22,7 @@
         type="password"
         id="password"
         name="password"
-        class="<%= messages.length > 0 ? 'input-error' : '' %>"
-        value="<%= formData.length > 0 ? formData.username : ''%>"
+        class="<%= authErrorMessages.length > 0 ? 'input-error' : '' %>"
       />
     </div>
 
