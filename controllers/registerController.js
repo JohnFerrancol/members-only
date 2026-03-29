@@ -12,7 +12,6 @@ const registerUsersPost = [
   async (req, res, next) => {
     try {
       const errors = validationResult(req);
-      console.log(errors);
       if (!errors.isEmpty()) {
         return res.status(400).render('register', {
           title: 'Register',

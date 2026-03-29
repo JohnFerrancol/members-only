@@ -12,7 +12,7 @@ passport.use(
 
       // If no matching user, throw error
       if (!user) {
-        return done(null, false, { message: 'Incorrect username' });
+        return done(null, false, { message: 'Username not found' });
       }
 
       // If password does not match, throw error

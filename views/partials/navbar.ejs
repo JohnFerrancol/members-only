@@ -1,7 +1,9 @@
-<nav>
-  <ul>
+<nav class="navigation-container">
+  <i class="fa-solid fa-people-group fa-xl app-icon"></i>
+
+  <div class="navigation-links-container">
     <% links.forEach(link => { %>
-    <li><a href="<%= link.href %>"><%= link.text %></a></li>
+    <a href="<%= link.href %>" class="navigation-links"><%= link.text %></a>
     <% }) %>
-  </ul>
+  </div>
 </nav>

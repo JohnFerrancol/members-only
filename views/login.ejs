@@ -1,13 +1,31 @@
-<h1>Login Page</h1>
-<form method="POST" action="/login">
-  Enter Username:
-  <br /><input type="text" name="username" required /> <br />Enter Password:
-  <br /><input type="password" name="password" required />
-  <br />
-  <br />
-  <input type="submit" value="Submit" />
+<div class="form-container">
+  <h1 class="form-header">Log In to existing account</h1>
+  <form class="input-forms" method="POST" action="/login">
+    <% messages.forEach(msg => { %>
+    <p class="auth-error-msg"><%= msg %></p>
+    <% }) %>
 
-  <% messages.forEach(msg => { %>
-  <p class="error"><%= msg %></p>
-  <% }) %>
-</form>
+    <div class="input-wrapper">
+      <label for="username">Username </label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="<%= messages.length > 0 ? 'input-error' : '' %>"
+      />
+    </div>
+
+    <div class="input-wrapper">
+      <label for="password">Password </label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="<%= messages.length > 0 ? 'input-error' : '' %>"
+        value="<%= formData.length > 0 ? formData.username : ''%>"
+      />
+    </div>
+
+    <button class="submit-button" type="submit" value="Submit">Login</button>
+  </form>
+</div>
