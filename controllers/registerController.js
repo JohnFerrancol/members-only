@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import { insertUser } from '../models/usersModel.js';
-import { validationResult } from 'express-validator';
+import { validationResult, matchedData } from 'express-validator';
 import newUserValidator from '../middleware/validators/userValidator.js';
 
 const registerUsersGet = (req, res) => {
@@ -19,8 +19,9 @@ const registerUsersPost = [
           formData: req.body,
         });
       }
+      const { username } = matchedData(req);
       const hashPassword = await bcrypt.hash(req.body.password, 10);
-      await insertUser(req.body.username, hashPassword);
+      await insertUser(username, hashPassword);
       res.redirect('/login');
     } catch (error) {
       return next(error);

@@ -3,8 +3,12 @@
   <div class="top-message">
     <p>To get the membership, you need to <a href="/login">login</a></p>
   </div>
-  <% } else {%> <% if (!locals.user.is_member) {%> <%-
-  include("partials/getMember") %> <% } %> <% } %>
+  <% } else {%>
+  <% if (!locals.user.is_member) {%>
+  <%-
+  include("partials/getMember") %>
+  <% } %>
+  <% } %>
   <h1>Posts</h1>
   <div class="posts-container">
     <div class="login-message"></div>

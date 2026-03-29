@@ -34,6 +34,7 @@ const createLocals = async (req, res, next) => {
     res.locals.links = [
       ...baseLinks,
       { href: '/', text: req.user.username, isText: true },
+      { href: '/post', text: 'New Post' },
       { href: '/logout', text: 'Log Out' },
     ];
   }

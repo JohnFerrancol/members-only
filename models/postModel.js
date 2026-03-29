@@ -7,4 +7,13 @@ const getPostsAndTheirUsers = async () => {
   return rows;
 };
 
-export { getPostsAndTheirUsers };
+const insertPostByUserId = async (title, content, userId) => {
+  await pool.query(
+    `
+    INSERT INTO posts (title, content, user_id)
+    VALUES ($1, $2, $3)`,
+    [title, content, userId]
+  );
+};
+
+export { getPostsAndTheirUsers, insertPostByUserId };

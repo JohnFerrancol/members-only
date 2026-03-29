@@ -72,5 +72,5 @@ npm run start
 - [x] Create a Login Form using Passport.js
 - [x] Display the correct posts based on login and membership status
 - [x] Add a page where members can 'join the club' by entering a passcode, where they can then see the author names on the post
-- [ ] Allow logged-in users to create a new post
+- [x] Allow logged-in users to create a new post
 - [ ] Add a user model called admin, which can delete messages

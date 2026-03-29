@@ -16,6 +16,7 @@ import loginRouter from './routes/loginRouter.js';
 import registerRouter from './routes/registerRouter.js';
 import logoutRouter from './routes/logoutRouter.js';
 import memberRouter from './routes/memberRouter.js';
+import postRouter from './routes/postRouter.js';
 
 const app = express();
 
@@ -49,6 +50,7 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/logout', logoutRouter);
 app.use('/member', memberRouter);
+app.use('/post', postRouter);
 
 app.use(errorHandler);
 

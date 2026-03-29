@@ -1,0 +1,37 @@
+<div class="form-container">
+  <h1 class="form-header">New Post</h1>
+  <form class="input-forms" method="POST" action="/post">
+    <div class="input-wrapper">
+      <% const titleError = errors?.find(e => e.path === 'title'); %>
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        class="<%= titleError ? 'input-error' : '' %>"
+        value="<%= formData.title %>"
+      />
+    </div>
+    <% if (titleError) {%>
+    <p class="error-msg"><%= titleError.msg %></p>
+    <% } %>
+
+    <div class="input-wrapper">
+      <% const contentError = errors?.find(e => e.path === 'content'); %>
+      <label for="content">Content</label>
+      <textarea
+        type="text"
+        id="content"
+        name="content"
+        class="<%= contentError ? 'input-error' : '' %>"
+      >
+<%= formData.content %>
+      </textarea>
+    </div>
+    <% if (contentError) {%>
+    <p class="error-msg"><%= contentError.msg %></p>
+    <% } %>
+
+    <button class="submit-button" type="submit" value="Submit">Post</button>
+  </form>
+</div>
